@@ -32,11 +32,9 @@
         android:background="@drawable/btn_gestor"
         android:text="@string/criar_form"
         android:textSize="15sp"
-
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Topo"
-
         tools:ignore="DuplicateClickableBoundsCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -51,26 +49,25 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toEndOf="@id/btn_criar_avali"
-        app:layout_constraintTop_toBottomOf="@+id/Topo" />
+        app:layout_constraintTop_toBottomOf="@id/Topo" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_forms"
-        android:layout_width="409dp"
-        android:layout_height="517dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="213dp" />
+    <!-- ScrollView and LinearLayout for inflating forms -->
+    <ScrollView
+        android:id="@+id/scroll_forms"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_acessar_respostas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
+        <LinearLayout
+            android:id="@+id/layout_form_gestor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-

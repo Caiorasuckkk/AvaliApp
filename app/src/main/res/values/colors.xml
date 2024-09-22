@@ -6,5 +6,11 @@
     <color name="cinza">#9FAAAEAC</color>
     <color name="green">#9F0FB35D</color>
     <color name="red">#9FC80C1B</color>
+    <color name="pessimo">#C9007CEF</color>
+    <color name="ruim">#A5007CEF</color>
+    <color name="medio">#7F007CEF</color>
+    <color name="bom">#65007CEF</color>
+    <color name="otimo">#33007CEF</color>
+
 
 </resources>
