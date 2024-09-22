@@ -1,0 +1,24 @@
+<resources>
+    <string name="AvaliApp">AvaliApp</string>
+    <string name="hint_email">Email</string>
+    <string name="Principal">Avaliapp</string>
+    <string name="text_esqueceu">Esqueceu a senha?</string>
+    <string name="acessar">Acessar Conta</string>
+    <string name="gestor_txt">Área do Gestor</string>
+    <string name="form_txt">Formularios</string>
+    <string name="avisos_txt">Avisos</string>
+    <string name="hora_txt">Horários</string>
+    <string name="senha">Senha</string>
+    <string name="criar_form">+ Criar avaliação</string>
+    <string name="acessar_respostas">Acessar Respostas</string>
+    <string name="txthorarios">Horários</string>
+    <string name="txtcriarform">Auto Avaliação</string>
+    <string name="definetitulo">Título do Formulário</string>
+    <string name="txtpergunta">Escreva aqui sua pergunta</string>
+    <string name="enviarform">Enviar Formulário</string>
+    <string name="formulario">Formulários</string>
+    <string name="responder">Responder</string>
+    <string name="disponivel_ate">Disponível ate :</string>
+    <string name="pergunta">Pergunta</string>
+
+</resources>

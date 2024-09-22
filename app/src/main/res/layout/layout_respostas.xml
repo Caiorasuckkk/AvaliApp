@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <TextView
+        android:id="@+id/txtpergunta_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pergunta"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnpessimo_1"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/pessimo"
+        android:text="Péssimo"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnruim_1"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ruim_pergunta"
+        android:text="Ruim"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@id/btnpessimo_1"
+        app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnmedio_1"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@drawable/medio_pergunta"
+        android:text="Médio"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@id/btnruim_1"
+        app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnbom_1"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@drawable/pergunta_bom"
+        android:text="Bom"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@id/btnmedio_1"
+        app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnotimo_1"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/otimo_pergunta"
+        android:text="Ótimo"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnbom_1"
+        app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

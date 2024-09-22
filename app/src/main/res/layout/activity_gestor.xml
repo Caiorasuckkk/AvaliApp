@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".gestor">
+
+    <View
+        android:id="@+id/Topo"
+        style="@style/topo"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/Principal"
+        app:layout_constraintBottom_toBottomOf="@id/Topo"
+        app:layout_constraintEnd_toEndOf="@id/Topo"
+        app:layout_constraintStart_toStartOf="@id/Topo"
+        app:layout_constraintTop_toTopOf="@id/Topo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_criar_avali"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_gestor"
+        android:text="@string/criar_form"
+        android:textSize="15sp"
+
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Topo"
+
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_acessar_respostas"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/btn_gestor"
+        android:text="@string/acessar_respostas"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toEndOf="@id/btn_criar_avali"
+        app:layout_constraintTop_toBottomOf="@+id/Topo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_forms"
+        android:layout_width="409dp"
+        android:layout_height="517dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+

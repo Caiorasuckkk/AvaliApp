@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "923470973444",
+    "firebase_url": "https://avaliapp-bb2e1-default-rtdb.firebaseio.com",
+    "project_id": "avaliapp-bb2e1",
+    "storage_bucket": "avaliapp-bb2e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923470973444:android:91f9dd8e68b07d43294351",
+        "android_client_info": {
+          "package_name": "com.example.avaliapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBKUL6FksgxwvGS143hcqAovBkTjKjxio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

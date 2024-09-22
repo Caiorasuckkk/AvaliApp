@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".responder_form">
+
+    <View
+        android:id="@+id/Topo"
+        style="@style/topo"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/Principal"
+        app:layout_constraintBottom_toBottomOf="@id/Topo"
+        app:layout_constraintEnd_toEndOf="@id/Topo"
+        app:layout_constraintStart_toStartOf="@id/Topo"
+        app:layout_constraintTop_toTopOf="@id/Topo" />
+
+    <TextView
+        android:id="@+id/tittle_form"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/formulario"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Topo" />
+
+    <LinearLayout
+        android:id="@+id/perguntas_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tittle_form"
+        android:layout_marginTop="10dp">
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_enviar_respostas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Enviar Respostas"
+        app:layout_constraintTop_toBottomOf="@id/perguntas_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
