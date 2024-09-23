@@ -2,6 +2,7 @@ package com.example.avaliapp;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -105,29 +106,35 @@ public class criarAvaliacao extends AppCompatActivity {
 
     // Método para adicionar um novo bloco de perguntas
     private void adicionarNovaPergunta() {
-        // Inflate o layout da pergunta existente e adicione ao container
         LayoutInflater inflater = LayoutInflater.from(this);
         View novaPergunta = inflater.inflate(R.layout.layout_pergunta, null);
 
-        // Obtendo referências ao EditText e ImageViews (verificar e apagar)
         EditText perguntaEditText = novaPergunta.findViewById(R.id.editText);
         ImageView verificarImageView = novaPergunta.findViewById(R.id.imageViewVerificar);
         ImageView apagarImageView = novaPergunta.findViewById(R.id.imageViewApagar);
 
-        // Configurando o comportamento do botão verificar
+        // Adiciona margem esquerda ao EditText
+        perguntaEditText.setPadding(16, 0, 0, 0); // 16dp de margem esquerda
+
         verificarImageView.setOnClickListener(v -> {
-            perguntaEditText.setEnabled(false);  // Desabilita o EditText
-            perguntaEditText.setTextColor(Color.GRAY);  // Muda a cor do texto para cinza
+            perguntaEditText.setEnabled(false);
+            perguntaEditText.setTextColor(Color.GRAY);
         });
 
-        // Configurando o comportamento do botão apagar
         apagarImageView.setOnClickListener(v -> {
-            perguntaEditText.setEnabled(true);  // Habilita o EditText
-            perguntaEditText.setText("");  // Limpa o texto
-            perguntaEditText.setTextColor(Color.BLACK);  // Volta a cor original
+            perguntaEditText.setEnabled(true);
+            perguntaEditText.setText("");
+            perguntaEditText.setTextColor(Color.BLACK);
         });
 
-        // Adicionar a nova pergunta ao layout_perguntas_container
+        // Definindo margens
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(0, 16, 0, 0);
+        novaPergunta.setLayoutParams(params);
+
         layoutPerguntasContainer.addView(novaPergunta);
     }
 
@@ -184,6 +191,7 @@ public class criarAvaliacao extends AppCompatActivity {
     }
 
     // Função para salvar no Firebase
+    // Função para salvar no Firebase
     private void salvarFormulario(String titulo, String data, ArrayList<String> perguntas) {
         String formularioId = databaseReference.push().getKey();  // Gera um ID único
 
@@ -199,10 +207,12 @@ public class criarAvaliacao extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Formulário salvo com sucesso!", Toast.LENGTH_SHORT).show();
-                        finish();  // Ou você pode usar startActivity(new Intent(this, GestorActivity.class));
+                        startActivity(new Intent(this, gestor.class)); // Volta para a tela Gestor
+                        finish();  // Fecha a tela atual
                     } else {
                         Toast.makeText(this, "Erro ao salvar formulário!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
 }

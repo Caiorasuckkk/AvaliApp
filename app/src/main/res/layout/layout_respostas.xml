@@ -16,16 +16,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Botões em chain -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnpessimo_1"
         android:layout_width="70dp"
         android:layout_height="30dp"
-        android:layout_marginStart="30dp"
         android:background="@drawable/pessimo"
         android:text="Péssimo"
         android:textColor="@android:color/black"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
+        app:layout_constraintEnd_toStartOf="@+id/btnruim_1"
+        app:layout_constraintTop_toBottomOf="@id/txtpergunta_1"
+        app:layout_constraintHorizontal_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnruim_1"
@@ -33,8 +36,10 @@
         android:layout_height="30dp"
         android:background="@drawable/ruim_pergunta"
         android:text="Ruim"
+        android:textSize="12dp"
         android:textColor="@android:color/black"
         app:layout_constraintStart_toEndOf="@id/btnpessimo_1"
+        app:layout_constraintEnd_toStartOf="@+id/btnmedio_1"
         app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -44,7 +49,9 @@
         android:background="@drawable/medio_pergunta"
         android:text="Médio"
         android:textColor="@android:color/black"
+        android:textSize="12dp"
         app:layout_constraintStart_toEndOf="@id/btnruim_1"
+        app:layout_constraintEnd_toStartOf="@+id/btnbom_1"
         app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -54,18 +61,21 @@
         android:background="@drawable/pergunta_bom"
         android:text="Bom"
         android:textColor="@android:color/black"
+        android:textSize="12dp"
         app:layout_constraintStart_toEndOf="@id/btnmedio_1"
+        app:layout_constraintEnd_toStartOf="@+id/btnotimo_1"
         app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnotimo_1"
         android:layout_width="70dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="30dp"
         android:background="@drawable/otimo_pergunta"
         android:text="Ótimo"
         android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="12dp"
         app:layout_constraintStart_toEndOf="@id/btnbom_1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtpergunta_1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,7 +60,7 @@ public class responder_form extends AppCompatActivity {
                 for (int i = 1; i <= totalPerguntas; i++) {
                     String pergunta = dataSnapshot.child("pergunta_" + i).getValue(String.class);
                     if (pergunta != null) {
-                        addPergunta(pergunta);
+                        addPergunta(pergunta, i); // Passando o índice da pergunta
                     }
                 }
             }
@@ -72,15 +72,15 @@ public class responder_form extends AppCompatActivity {
         });
     }
 
-    private void addPergunta(String pergunta) {
+    private void addPergunta(String pergunta, int index) {
         View perguntaView = LayoutInflater.from(this).inflate(R.layout.layout_respostas, perguntasContainer, false);
         TextView txtPergunta = perguntaView.findViewById(R.id.txtpergunta_1);
         txtPergunta.setText(pergunta);
-        setupButtonListeners(perguntaView, pergunta);
+        setupButtonListeners(perguntaView, index); // Passando o índice
         perguntasContainer.addView(perguntaView);
     }
 
-    private void setupButtonListeners(View perguntaView, String pergunta) {
+    private void setupButtonListeners(View perguntaView, int index) {
         Button btnPessimo = perguntaView.findViewById(R.id.btnpessimo_1);
         Button btnRuim = perguntaView.findViewById(R.id.btnruim_1);
         Button btnMedio = perguntaView.findViewById(R.id.btnmedio_1);
@@ -88,11 +88,11 @@ public class responder_form extends AppCompatActivity {
         Button btnOtimo = perguntaView.findViewById(R.id.btnotimo_1);
 
         // Obtendo as cores definidas no arquivo colors.xml
-        int corOriginalPessimo = getResources().getColor(R.color.pessimo); // Exemplo: cor_pessimo
-        int corOriginalRuim = getResources().getColor(R.color.ruim);       // Exemplo: cor_ruim
-        int corOriginalMedio = getResources().getColor(R.color.medio);     // Exemplo: cor_medio
-        int corOriginalBom = getResources().getColor(R.color.bom);         // Exemplo: cor_bom
-        int corOriginalOtimo = getResources().getColor(R.color.otimo);     // Exemplo: cor_otimo
+        int corOriginalPessimo = getResources().getColor(R.color.pessimo);
+        int corOriginalRuim = getResources().getColor(R.color.ruim);
+        int corOriginalMedio = getResources().getColor(R.color.medio);
+        int corOriginalBom = getResources().getColor(R.color.bom);
+        int corOriginalOtimo = getResources().getColor(R.color.otimo);
 
         View.OnClickListener listener = v -> {
             // Restaurar as cores originais dos botões
@@ -113,7 +113,7 @@ public class responder_form extends AppCompatActivity {
             else if (v == btnBom) valor = 4;
             else if (v == btnOtimo) valor = 5;
 
-            respostas.put(pergunta, String.valueOf(valor));
+            respostas.put("resposta_" + index, String.valueOf(valor)); // Usando o índice para nomear a resposta
             checkAllResponses();
         };
 
@@ -123,7 +123,6 @@ public class responder_form extends AppCompatActivity {
         btnBom.setOnClickListener(listener);
         btnOtimo.setOnClickListener(listener);
     }
-
 
     private void checkAllResponses() {
         // Habilita o botão "Enviar Respostas" apenas se todas as perguntas forem respondidas
@@ -150,19 +149,38 @@ public class responder_form extends AppCompatActivity {
 
         String formId = getIntent().getStringExtra("form_id");
 
+        // Referência para as respostas do formulário
         DatabaseReference respostasRef = databaseReference.child(formId).child("respostas").child(userId);
-        HashMap<String, Object> respostaData = new HashMap<>();
-        respostaData.put("respostas", respostas);
-        respostaData.put("data", formDate);
-        respostaData.put("email", userEmail);
 
-        respostasRef.setValue(respostaData)
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(responder_form.this, "Respostas enviadas com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(responder_form.this, "Falha ao enviar respostas.", Toast.LENGTH_SHORT).show();
-                });
+        // Verificar se o usuário já respondeu
+        respostasRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Toast.makeText(responder_form.this, "Você já respondeu a este formulário!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Criar um objeto para armazenar as respostas dentro do nó "respostas"
+                    HashMap<String, Object> respostaData = new HashMap<>();
+                    respostaData.put("data", formDate);
+                    respostaData.put("email", userEmail);
+                    respostaData.put("respostas", respostas); // Adiciona o HashMap de respostas
+
+                    // Salvar as respostas
+                    respostasRef.setValue(respostaData)
+                            .addOnSuccessListener(aVoid -> {
+                                Toast.makeText(responder_form.this, "Respostas enviadas com sucesso!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(responder_form.this, "Falha ao enviar respostas.", Toast.LENGTH_SHORT).show();
+                            });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(responder_form.this, "Erro ao verificar respostas anteriores.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

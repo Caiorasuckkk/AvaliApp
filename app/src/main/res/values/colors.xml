@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-   <color name="topo"> #87FFFF</color>
+   <color name="topo">#891FB7E8</color>
     <color name="cinza">#9FAAAEAC</color>
     <color name="green">#9F0FB35D</color>
     <color name="red">#9FC80C1B</color>
@@ -11,6 +11,11 @@
     <color name="medio">#7F007CEF</color>
     <color name="bom">#65007CEF</color>
     <color name="otimo">#33007CEF</color>
+    <color name="pessimo_grafico">#CBC80C1B</color>
+    <color name="ruim_grafico">#ADD12828</color>
+    <color name="medio_grafico">#B1FF9800</color>
+    <color name="bom_grafico">#CB28A62D</color>
+    <color name="otimo_grafico">#CB18761D</color>
 
-
+    #CB18761D
 </resources>
