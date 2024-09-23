@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Menu extends AppCompatActivity {
 
-    private Button view_Gestor,view_formulario;
+    private Button view_Gestor,view_formulario,view_horarios;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private boolean isGestor = false; // Flag para verificar se o usuário é gestor
@@ -36,7 +36,7 @@ public class Menu extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        isGestor = true;
+        isGestor = false;
         // Inicializa Firebase
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -44,11 +44,18 @@ public class Menu extends AppCompatActivity {
         // Referência para o botão view_Gestor
         view_Gestor = findViewById(R.id.view_Gestor);
         view_formulario = findViewById(R.id.view_Formulario);
+        view_horarios = findViewById(R.id.view_Horarios);
 
+        verificarPermissao();
         // Verifica permissão do usuário ao carregar a Activity
           view_formulario.setOnClickListener(view -> {
               irAoFormulario();
           });
+        view_horarios.setOnClickListener(view -> {
+            irAoHorarios();
+        });
+
+
 
         // Configura o clique no botão view_Gestor
         view_Gestor.setOnClickListener(v -> {
@@ -59,6 +66,8 @@ public class Menu extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void verificarPermissao() {
         String userId = mAuth.getCurrentUser().getUid();
@@ -91,5 +100,9 @@ public class Menu extends AppCompatActivity {
     private void irAoFormulario() {
         Intent formulario = new Intent(Menu.this, Formulario.class);
         startActivity(formulario);
+    }
+    private void irAoHorarios() {
+        Intent horario =new Intent(Menu.this, horarios.class);
+        startActivity(horario);
     }
 }

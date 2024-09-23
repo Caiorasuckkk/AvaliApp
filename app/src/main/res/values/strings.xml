@@ -1,7 +1,7 @@
 <resources>
     <string name="AvaliApp">AvaliApp</string>
     <string name="hint_email">Email</string>
-    <string name="Principal">Avaliapp</string>
+    <string name="Principal">AvaliApp</string>
     <string name="text_esqueceu">Esqueceu a senha?</string>
     <string name="acessar">Acessar Conta</string>
     <string name="gestor_txt">Área do Gestor</string>
@@ -20,6 +20,7 @@
     <string name="responder">Responder</string>
     <string name="disponivel_ate">Disponível ate :</string>
     <string name="pergunta">Pergunta</string>
+    <string name="grafico_respostas">Ver Gráficos</string>
 
 
 </resources>
