@@ -11,8 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/verGraficoButton"
+        android:background="@drawable/btnenviar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ver Gráfico" />

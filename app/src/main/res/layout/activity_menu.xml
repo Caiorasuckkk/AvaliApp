@@ -12,16 +12,41 @@
         style="@style/topo"
         tools:ignore="MissingConstraints" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_image"
+        android:layout_width="56dp"
+        app:shapeAppearanceOverlay="@style/circular"
+        android:layout_height="56dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_user"
+        app:layout_constraintBottom_toBottomOf="@id/icon_profile"
+        app:layout_constraintEnd_toEndOf="@id/icon_profile"
+        app:layout_constraintStart_toStartOf="@id/icon_profile"
+        app:layout_constraintTop_toTopOf="@id/icon_profile" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/icon_profile"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/icon_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
-        android:text="@string/Principal"
+        android:text="Sanofi"
         app:layout_constraintBottom_toBottomOf="@id/Topo"
         app:layout_constraintEnd_toEndOf="@id/Topo"
+        app:layout_constraintHorizontal_bias="0.835"
         app:layout_constraintStart_toStartOf="@id/Topo"
-        app:layout_constraintTop_toTopOf="@id/Topo" />
+        app:layout_constraintTop_toTopOf="@id/Topo"
+        app:layout_constraintVertical_bias="0.533" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/form_container"
@@ -34,7 +59,7 @@
         app:layout_constraintVertical_chainStyle="packed">
 
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/view_Formulario"
             style="@style/Formulario"
             app:layout_constraintEnd_toStartOf="@id/view_Avisos"
@@ -103,13 +128,14 @@
             app:layout_constraintEnd_toEndOf="@id/view_Avisos"
             app:layout_constraintTop_toTopOf="@id/view_Avisos" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/view_Horarios"
             style="@style/Formulario"
-            app:layout_constraintTop_toBottomOf="@id/view_Formulario"
-            app:layout_constraintEnd_toStartOf="@id/view_Gestor"
+            android:layout_margin="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="8dp" />
+            app:layout_constraintEnd_toStartOf="@id/view_Gestor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_Formulario" />
 
         <ImageView
             android:id="@+id/image_formulario3"
@@ -141,7 +167,7 @@
 
 
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/view_Gestor"
             style="@style/Formulario2"
             app:layout_constraintTop_toBottomOf="@id/view_Avisos"

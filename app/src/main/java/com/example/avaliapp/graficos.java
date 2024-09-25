@@ -72,8 +72,6 @@ public class graficos extends AppCompatActivity {
         });
     }
 
-    // Carrega as perguntas para o Spinner
-    // Carrega as perguntas para o Spinner
     private void carregarPerguntas() {
         mDatabase.child("Formulario").child(formId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
