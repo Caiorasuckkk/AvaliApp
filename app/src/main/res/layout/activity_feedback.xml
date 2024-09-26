@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feedback">
+    <View
+        android:id="@+id/Topo"
+        style="@style/topo"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_image"
+        android:layout_width="56dp"
+        app:shapeAppearanceOverlay="@style/circular"
+        android:layout_height="56dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_user"
+        app:layout_constraintBottom_toBottomOf="@id/icon_profile"
+        app:layout_constraintEnd_toEndOf="@id/icon_profile"
+        app:layout_constraintStart_toStartOf="@id/icon_profile"
+        app:layout_constraintTop_toTopOf="@id/icon_profile" />
+
+    <ImageView
+        android:id="@+id/icon_profile"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/icon_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:text="Sanofi"
+        app:layout_constraintBottom_toBottomOf="@id/Topo"
+        app:layout_constraintEnd_toEndOf="@id/Topo"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="@id/Topo"
+        app:layout_constraintTop_toTopOf="@id/Topo"
+        app:layout_constraintVertical_bias="0.533" />
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="629dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/Topo"
+        tools:layout_editor_absoluteY="102dp"
+        tools:ignore="MissingConstraints">
+
+        <!-- Campo para criar um novo pedido de feedback -->
+        <EditText
+            android:id="@+id/et_feedback_request"
+            android:background="@drawable/text_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escreva seu pedido de feedback" />
+
+        <!-- Botão para enviar um novo pedido de feedback -->
+
+        <!-- RecyclerView para exibir o feed de feedbacks -->
+        <Button
+            android:id="@+id/btn_send_feedback_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Sanofi"
+            android:text="Solicitar Feedback" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_feedback_feed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

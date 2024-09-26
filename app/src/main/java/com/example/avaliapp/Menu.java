@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Menu extends AppCompatActivity {
 
-    private Button view_Gestor, view_formulario, view_horarios, icon_profile;
+    private Button view_Gestor, view_formulario, view_horarios, icon_profile,view_feedback,view_teams;
     private ImageView profile_image; // Adicionando ImageView para o perfil
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
@@ -51,13 +51,16 @@ public class Menu extends AppCompatActivity {
         view_Gestor = findViewById(R.id.view_Gestor);
         view_formulario = findViewById(R.id.view_Formulario);
         view_horarios = findViewById(R.id.view_Horarios);
+        view_feedback=findViewById(R.id.view_feedback);
+        view_teams=findViewById(R.id.view_teams);
 
-        verificarPermissao();
         carregarImagemPerfil(); // Carrega a imagem do perfil
 
         // Configura os cliques nos botões
         view_formulario.setOnClickListener(view -> irAoFormulario());
         view_horarios.setOnClickListener(view -> irAoHorarios());
+        view_feedback.setOnClickListener(view -> irAoFeedback());
+        view_teams.setOnClickListener(view -> irAoReuniao());
         icon_profile.setOnClickListener(view -> irAoProfile());
         view_Gestor.setOnClickListener(v -> {
             if (isGestor) {
@@ -66,6 +69,16 @@ public class Menu extends AppCompatActivity {
                 Toast.makeText(Menu.this, "Você não tem permissão para acessar esta área.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void irAoReuniao() {
+        Intent reuniao = new Intent(Menu.this, reuniao.class); // Certifique-se de usar o nome correto da sua Activity de perfil
+        startActivity(reuniao);
+    }
+
+    private void irAoFeedback() {
+        Intent Feed = new Intent(Menu.this, feedback.class); // Certifique-se de usar o nome correto da sua Activity de perfil
+        startActivity(Feed);
     }
 
     private void irAoProfile() {

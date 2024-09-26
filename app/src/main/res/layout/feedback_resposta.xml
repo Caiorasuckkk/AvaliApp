@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/feedback_design"
+    android:orientation="vertical"
+
+    android:padding="16dp">
+
+    <!-- Imagem do usuário que fez o request -->
+
+    <!-- Nome do usuário que fez o request -->
+    <TextView
+        android:id="@+id/tv_user_name_requester"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome do usuário que fez o request"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Pedido de Feedback -->
+    <TextView
+        android:id="@+id/tv_feedback_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Feedback Request"
+        android:textSize="16sp" />
+
+    <!-- Campo para digitar a resposta -->
+    <EditText
+        android:background="@drawable/text_feedback"
+        android:id="@+id/et_feedback_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Digite sua resposta" />
+
+    <!-- Botão para enviar a resposta -->
+    <Button
+        android:id="@+id/btn_send_feedback_response"
+        android:layout_width="wrap_content"
+        android:backgroundTint="@color/Sanofi"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Enviar Resposta" />
+</LinearLayout>

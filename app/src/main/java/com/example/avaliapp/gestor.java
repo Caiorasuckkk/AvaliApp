@@ -34,10 +34,13 @@ public class gestor extends AppCompatActivity {
 
         // Inicializa o container do layout
         layoutFormGestor = findViewById(R.id.layout_form_gestor);
-
+        Button btncadastros = findViewById(R.id.btn_cadastro);
+        btncadastros.setOnClickListener(view -> IrAoCadastro());
         // Botão "Acessar Respostas"
         Button btncriarform = findViewById(R.id.btn_criar_avali);
         btncriarform.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(gestor.this, criarAvaliacao.class);
@@ -48,6 +51,12 @@ public class gestor extends AppCompatActivity {
         // Verifica se há formulários disponíveis no Firebase
         verificarFormularios();
     }
+
+    private void IrAoCadastro() {
+        Intent Cadastro= new Intent(gestor.this,Cadastro.class);
+        startActivity(Cadastro);
+    }
+
 
     private void verificarFormularios() {
         mDatabase.child("Formulario").addListenerForSingleValueEvent(new ValueEventListener() {

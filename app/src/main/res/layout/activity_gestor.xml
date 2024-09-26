@@ -37,8 +37,9 @@
         app:layout_constraintTop_toBottomOf="@+id/Topo"
         tools:ignore="DuplicateClickableBoundsCheck" />
 
+    <!-- ScrollView and LinearLayout for inflating forms -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_acessar_respostas"
+        android:id="@+id/btn_cadastro"
         android:layout_width="190dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -49,16 +50,16 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/btn_criar_avali"
         app:layout_constraintTop_toBottomOf="@id/Topo" />
 
-    <!-- ScrollView and LinearLayout for inflating forms -->
     <ScrollView
         android:id="@+id/scroll_forms"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_acessar_respostas"
+        app:layout_constraintTop_toBottomOf="@id/btn_cadastro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
