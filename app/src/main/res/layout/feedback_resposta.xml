@@ -15,8 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nome do usuário que fez o request"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/sanofisans_italic"
+        android:textSize="8pt"
+        />
 
     <!-- Pedido de Feedback -->
     <TextView
@@ -25,23 +26,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Feedback Request"
-        android:textSize="16sp" />
+        android:fontFamily="@font/sanofisans_regular"
+        android:textSize="9pt" />
 
     <!-- Campo para digitar a resposta -->
     <EditText
-        android:background="@drawable/text_feedback"
         android:id="@+id/et_feedback_response"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="377dp"
+        android:layout_height="34dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/text_feedback"
         android:hint="Digite sua resposta" />
 
     <!-- Botão para enviar a resposta -->
     <Button
         android:id="@+id/btn_send_feedback_response"
         android:layout_width="wrap_content"
-        android:backgroundTint="@color/Sanofi"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/Sanofi_Button"
         android:text="Enviar Resposta" />
 </LinearLayout>

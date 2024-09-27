@@ -28,7 +28,7 @@ public class Menu extends AppCompatActivity {
     private ImageView profile_image; // Adicionando ImageView para o perfil
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private boolean isGestor = false; // Flag para verificar se o usuário é gestor
+    private boolean isGestor = true; // Flag para verificar se o usuário é gestor
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

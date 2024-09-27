@@ -21,6 +21,7 @@
     <string name="disponivel_ate">Disponível ate :</string>
     <string name="pergunta">Pergunta</string>
     <string name="grafico_respostas">Ver Gráficos</string>
+    <string name="Login">Login</string>
 
 
 </resources>

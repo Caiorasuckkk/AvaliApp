@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Menu">
 
     <View
@@ -26,278 +27,292 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/icon_profile"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/icon_profile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextView
+    <ImageView
         style="@style/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:text="Sanofi"
+        android:layout_width="236dp"
+        android:layout_height="96dp"
+        android:src="@drawable/logo_sanofi"
         app:layout_constraintBottom_toBottomOf="@id/Topo"
         app:layout_constraintEnd_toEndOf="@id/Topo"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/Topo"
         app:layout_constraintTop_toTopOf="@id/Topo"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/view_Formulario"
-        style="@style/Formulario"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintBottom_toTopOf="@id/view_Horarios"
-        app:layout_constraintEnd_toStartOf="@id/view_Avisos"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="362dp"
+        android:layout_height="512dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Topo" />
+        app:layout_constraintTop_toBottomOf="@id/Topo">
 
-    <TextView
+        <Button
+            android:id="@+id/view_Formulario"
+            style="@style/Formulario"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintBottom_toTopOf="@id/view_Horarios"
+            app:layout_constraintEnd_toStartOf="@id/view_Avisos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Topo" />
+
+        <TextView
             android:id="@+id/texto_formulario"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:fontFamily="@font/sanofisans_bold"
             android:padding="8dp"
             android:text="@string/form_txt"
+            android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:textSize="10pt"
             app:layout_constraintEnd_toEndOf="@id/view_Formulario"
             app:layout_constraintStart_toEndOf="@+id/view_Formulario"
             app:layout_constraintStart_toStartOf="@+id/view_Formulario"
             app:layout_constraintTop_toTopOf="@id/view_Formulario" />
 
 
-    <ImageView
+        <ImageView
 
-        android:id="@+id/image_formulario"
-        style="@style/gestor"
-        android:layout_width="107dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="2dp"
-        android:src="@drawable/icon_form"
-        app:layout_constraintBottom_toBottomOf="@id/view_Formulario"
-        app:layout_constraintEnd_toEndOf="@id/view_Formulario"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@id/view_Formulario"
-        app:layout_constraintTop_toTopOf="@id/view_Formulario"
-        app:layout_constraintVertical_bias="0.705" />
+            android:id="@+id/image_formulario"
+            style="@style/gestor"
+            android:layout_width="150dp"
+            android:layout_height="74dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_form"
+            app:layout_constraintBottom_toBottomOf="@id/view_Formulario"
+            app:layout_constraintEnd_toEndOf="@id/view_Formulario"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/view_Formulario"
+            app:layout_constraintTop_toTopOf="@id/view_Formulario"
+            app:layout_constraintVertical_bias="0.702" />
 
-    <View
-        android:id="@+id/view_Avisos"
-        style="@style/Formulario2"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="35dp"
-        app:layout_constraintBottom_toTopOf="@id/view_Gestor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_Formulario"
-        app:layout_constraintTop_toBottomOf="@id/Topo" />
+        <Button
+            android:id="@+id/view_Avisos"
+            style="@style/Formulario2"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintBottom_toTopOf="@id/view_Gestor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_Formulario"
+            app:layout_constraintTop_toBottomOf="@id/Topo" />
 
-    <ImageView
-        android:id="@+id/image_formulario2"
-        style="@style/gestor"
-        android:layout_width="105dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="2dp"
-        android:src="@drawable/alert"
-        app:layout_constraintBottom_toBottomOf="@id/view_Avisos"
-        app:layout_constraintEnd_toEndOf="@id/view_Avisos"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@id/view_Avisos"
-        app:layout_constraintTop_toTopOf="@id/view_Avisos"
-        app:layout_constraintVertical_bias="0.6" />
+        <ImageView
+            android:id="@+id/image_formulario2"
+            style="@style/gestor"
+            android:layout_width="0dp"
+            android:layout_height="74dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/alert"
+            app:layout_constraintBottom_toBottomOf="@id/view_Avisos"
+            app:layout_constraintEnd_toEndOf="@id/view_Avisos"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/view_Avisos"
+            app:layout_constraintTop_toTopOf="@id/view_Avisos"
+            app:layout_constraintVertical_bias="0.702" />
 
         <TextView
             android:id="@+id/texto_formulario2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sanofisans_bold"
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/avisos_txt"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:textSize="10pt"
             app:layout_constraintEnd_toEndOf="@id/view_Avisos"
             app:layout_constraintStart_toStartOf="@+id/view_Avisos"
             app:layout_constraintTop_toTopOf="@id/view_Avisos" />
 
-    <Button
-        android:id="@+id/view_Horarios"
-        style="@style/Formulario"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toStartOf="@id/view_Gestor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_Formulario" />
+        <Button
+            android:id="@+id/view_Horarios"
+            style="@style/Formulario"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@id/view_Gestor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_Formulario" />
 
-    <ImageView
-        android:id="@+id/image_formulario3"
-        style="@style/gestor"
-        android:layout_width="105dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="2dp"
-        android:src="@drawable/bus"
-        app:layout_constraintBottom_toBottomOf="@id/view_Horarios"
-        app:layout_constraintEnd_toEndOf="@id/view_Horarios"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@id/view_Horarios"
-        app:layout_constraintTop_toTopOf="@id/view_Horarios"
-        app:layout_constraintVertical_bias="0.6" />
+        <ImageView
+            android:id="@+id/image_formulario3"
+            style="@style/gestor"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/bus"
+            app:layout_constraintBottom_toBottomOf="@id/view_Horarios"
+            app:layout_constraintEnd_toEndOf="@id/view_Horarios"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/view_Horarios"
+            app:layout_constraintTop_toTopOf="@id/view_Horarios"
+            app:layout_constraintVertical_bias="0.817" />
 
         <TextView
             android:id="@+id/texto_formulario3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sanofisans_bold"
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/hora_txt"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:textSize="10pt"
+
             app:layout_constraintEnd_toEndOf="@id/view_Horarios"
             app:layout_constraintStart_toStartOf="@+id/view_Horarios"
 
             app:layout_constraintTop_toTopOf="@id/view_Horarios" />
 
 
-    <Button
-        android:id="@+id/view_Gestor"
-        style="@style/Formulario2"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_Horarios"
-        app:layout_constraintTop_toBottomOf="@id/view_Avisos" />
+        <Button
+            android:id="@+id/view_Gestor"
+            style="@style/Formulario2"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_Horarios"
+            app:layout_constraintTop_toBottomOf="@id/view_Avisos" />
 
-    <ImageView
-        android:id="@+id/image_formulario4"
-        style="@style/gestor"
-        android:layout_width="105dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="2dp"
-        android:src="@drawable/icon_gestor"
-        app:layout_constraintBottom_toBottomOf="@id/view_Gestor"
-        app:layout_constraintEnd_toEndOf="@id/view_Gestor"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@id/view_Gestor"
-        app:layout_constraintTop_toTopOf="@id/view_Gestor"
-        app:layout_constraintVertical_bias="0.641" />
+        <ImageView
+            android:id="@+id/image_formulario4"
+            style="@style/gestor"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_gestor"
+            app:layout_constraintBottom_toBottomOf="@id/view_Gestor"
+            app:layout_constraintEnd_toEndOf="@id/view_Gestor"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/view_Gestor"
+            app:layout_constraintTop_toTopOf="@id/view_Gestor"
+            app:layout_constraintVertical_bias="0.817" />
 
-    <TextView
+        <TextView
             android:id="@+id/texto_formulario4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/sanofisans_bold"
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/gestor_txt"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:textSize="10pt"
+
             app:layout_constraintEnd_toEndOf="@id/view_Gestor"
             app:layout_constraintStart_toStartOf="@+id/view_Gestor"
             app:layout_constraintTop_toTopOf="@id/view_Gestor"
 
             />
 
-    <Button
-        android:id="@+id/view_feedback"
-        style="@style/Formulario"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="71dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/view_teams"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_Horarios" />
-    <TextView
-        android:id="@+id/texto_feedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="Feedback"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/view_feedback"
-        app:layout_constraintStart_toStartOf="@+id/view_feedback"
-        app:layout_constraintTop_toTopOf="@id/view_feedback"
+        <Button
+            android:id="@+id/view_feedback"
+            style="@style/Formulario"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/view_teams"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_Horarios"
+            app:layout_constraintVertical_bias="0.0" />
 
-        />
-    <ImageView
-        android:id="@+id/image_feedback"
-        style="@style/gestor"
-        android:layout_width="105dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="2dp"
-        android:src="@drawable/feedback"
-        app:layout_constraintBottom_toBottomOf="@id/view_feedback"
-        app:layout_constraintEnd_toEndOf="@id/view_feedback"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@id/view_feedback"
-        app:layout_constraintTop_toTopOf="@id/view_feedback"
-        app:layout_constraintVertical_bias="0.641" />
+        <TextView
+            android:id="@+id/texto_feedback"
+            android:layout_width="153dp"
+            android:layout_height="43dp"
+            android:fontFamily="@font/sanofisans_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Feedback"
+            android:textColor="#000000"
+            android:textSize="10pt"
+            app:layout_constraintEnd_toEndOf="@id/view_feedback"
+            app:layout_constraintStart_toStartOf="@+id/view_feedback"
+            app:layout_constraintTop_toTopOf="@id/view_feedback"
 
-    <Button
-        android:id="@+id/view_teams"
-        style="@style/Formulario2"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="71dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_feedback"
-        app:layout_constraintTop_toBottomOf="@id/view_Gestor" />
+            />
 
-    <TextView
-        android:id="@+id/texto_teams"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="Marcar Reuniao"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/view_teams"
-        app:layout_constraintStart_toStartOf="@+id/view_teams"
-        app:layout_constraintTop_toTopOf="@id/view_teams"
+        <ImageView
+            android:id="@+id/image_feedback"
+            style="@style/gestor"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/feedback"
+            app:layout_constraintBottom_toBottomOf="@id/view_feedback"
+            app:layout_constraintEnd_toEndOf="@id/view_feedback"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/view_feedback"
+            app:layout_constraintTop_toTopOf="@id/view_feedback"
+            app:layout_constraintVertical_bias="0.768" />
 
-        />
-    <ImageView
-        android:id="@+id/image_reuniao"
-        style="@style/gestor"
-        android:layout_width="105dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="2dp"
-        android:src="@drawable/reuniao"
-        app:layout_constraintBottom_toBottomOf="@id/view_teams"
-        app:layout_constraintEnd_toEndOf="@id/view_teams"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@id/view_teams"
-        app:layout_constraintTop_toTopOf="@id/view_teams"
-        app:layout_constraintVertical_bias="0.641" />
+        <Button
+            android:id="@+id/view_teams"
+            style="@style/Formulario2"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view_feedback"
+            app:layout_constraintTop_toBottomOf="@id/view_Gestor" />
+
+        <TextView
+            android:id="@+id/texto_teams"
+            android:layout_width="125dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/sanofisans_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Marcar Reuniao"
+            android:textColor="#000000"
+            android:textSize="10pt"
+            app:layout_constraintEnd_toEndOf="@id/view_teams"
+            app:layout_constraintStart_toStartOf="@+id/view_teams"
+            app:layout_constraintTop_toTopOf="@id/view_teams"
+
+            />
+
+        <ImageView
+            android:id="@+id/image_reuniao"
+            style="@style/gestor"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/reuniao"
+            app:layout_constraintBottom_toBottomOf="@id/view_teams"
+            app:layout_constraintEnd_toEndOf="@id/view_teams"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/view_teams"
+            app:layout_constraintTop_toTopOf="@id/view_teams"
+            app:layout_constraintVertical_bias="0.768" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,7 +37,8 @@
     <style name="title">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">52dp</item>
+        <item name="android:textSize">25pt</item>
+        <item name="fontFamily">@font/sanofisans_regular</item>
     </style>
 
     <style name="topo">

@@ -1,5 +1,6 @@
 package com.example.avaliapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -56,7 +57,7 @@ public class gerenciamento_grupo extends AppCompatActivity {
 
         // Configuração do RecyclerView para grupos
         recyclerViewGroups.setLayoutManager(new LinearLayoutManager(this));
-        groupAdapter = new GroupAdapter(groupList);
+        groupAdapter = new GroupAdapter(this, groupList); // Passando o contexto
         recyclerViewGroups.setAdapter(groupAdapter);
 
         // Referência ao Firebase Database
@@ -280,6 +281,7 @@ public class gerenciamento_grupo extends AppCompatActivity {
 
         // Criando um novo grupo
         DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("groups").push();
+        String groupId = groupRef.getKey(); // Obtém o ID do grupo que foi gerado
         HashMap<String, Object> groupData = new HashMap<>();
         groupData.put("title", groupTitle);
         groupData.put("creatorId", userId); // Adicionando o ID do criador
@@ -291,6 +293,7 @@ public class gerenciamento_grupo extends AppCompatActivity {
         }
 
         groupData.put("users", selectedUserIds); // Adicionando os IDs dos usuários ao grupo
+        groupData.put("id", groupId); // Adiciona o ID do grupo aos dados
 
         // Salvando o grupo no Firebase Database
         groupRef.setValue(groupData).addOnCompleteListener(task -> {
@@ -300,12 +303,18 @@ public class gerenciamento_grupo extends AppCompatActivity {
                 editTextTitle.setText(""); // Limpa o campo de título
                 selectedUsers.clear(); // Limpa a lista de usuários selecionados
                 buttonSaveGroup.setEnabled(false); // Desabilita o botão
+
+                // Inicia a ChatActivity e passa o ID do grupo
+                Intent intent = new Intent(gerenciamento_grupo.this, ChatActivity.class);
+                intent.putExtra("GROUP_ID", groupId); // Passa o ID do grupo
+                startActivity(intent); // Inicia a atividade
             } else {
                 Log.d(TAG, "Erro ao salvar grupo: " + task.getException().getMessage());
                 Toast.makeText(gerenciamento_grupo.this, "Erro ao salvar grupo.", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     // Callback para receber a área do usuário
     interface CurrentUserAreaCallback {

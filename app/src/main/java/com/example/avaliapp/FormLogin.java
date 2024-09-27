@@ -109,7 +109,6 @@ public class FormLogin extends AppCompatActivity {
          edit_email=findViewById(R.id.edit_email);
         edit_senha=findViewById(R.id.edit_senha);
         button_acesso=findViewById(R.id.button_acesso);
-        progress_bar=findViewById(R.id.progress_bar);
     }
 
 }

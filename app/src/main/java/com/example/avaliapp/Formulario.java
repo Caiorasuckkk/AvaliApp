@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +27,9 @@ import java.util.Locale;
 public class Formulario extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
-    private LinearLayout formContainer;  // Container para os formulários disponíveis
+    private FirebaseAuth mAuth;
+    private LinearLayout formContainer;
+    private ImageView profile_image;// Container para os formulários disponíveis
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +37,13 @@ public class Formulario extends AppCompatActivity {
         setContentView(R.layout.activity_formulario);
 
         // Inicializa o Firebase Database
+        mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         // Inicializa o container do layout
         formContainer = findViewById(R.id.form_container);
+        profile_image = findViewById(R.id.profile_image);
+        carregarImagemPerfil();
 
         // Verifica se há formulários disponíveis no Firebase
         verificarFormularios();
@@ -93,6 +101,35 @@ public class Formulario extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(Formulario.this, "Erro ao carregar formulários.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void carregarImagemPerfil() {
+        String userId = mAuth.getCurrentUser().getUid();
+        mDatabase.child("users").child(userId).child("imagens").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // Para obter a primeira imagem, você pode usar:
+                    for (DataSnapshot imageSnapshot : dataSnapshot.getChildren()) {
+                        String imageUrl = imageSnapshot.child("imageUrl").getValue(String.class);
+                        if (imageUrl != null) {
+                            // Usando Glide para carregar a imagem
+                            Glide.with(Formulario.this)
+                                    .load(imageUrl)
+                                    .into(profile_image);
+                            return;
+                        }
+                    }
+                } else {
+                    // Se não houver imagem, você pode definir uma imagem padrão
+                    profile_image.setImageResource(R.drawable.icon_user); // Imagem padrão
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(Formulario.this, "Erro ao carregar a imagem de perfil.", Toast.LENGTH_SHORT).show();
             }
         });
     }

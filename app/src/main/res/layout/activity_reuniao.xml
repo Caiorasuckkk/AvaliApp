@@ -12,10 +12,18 @@
         android:hint="Tema da Reunião" />
 
     <EditText
-        android:id="@+id/editTextDataHora"
+        android:id="@+id/editTextData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Data e Hora (ex: 2024-09-30T10:00:00Z)" />
+        android:hint="Escolher Data"
+        android:focusable="false" />
+
+    <EditText
+        android:id="@+id/editTextHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escolher Hora"
+        android:focusable="false" />
 
     <Button
         android:id="@+id/buttonCriar"
@@ -23,4 +31,12 @@
         android:layout_height="wrap_content"
         android:text="Criar Reunião"
         android:layout_gravity="center" />
+
+    <!-- RecyclerView para exibir os usuários -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>
